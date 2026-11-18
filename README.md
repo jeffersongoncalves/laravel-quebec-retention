@@ -68,6 +68,13 @@ A model may be anonymized outside this package, for example by [laravel-quebec-r
 
 You can also call it from code: `QuebecRetention::apply(dryRun: false)` returns one row per model and column with the number of records it anonymized. `QuebecRetention::reapply()` returns how many columns it erased again.
 
+## Upgrading to 2.0
+
+2.0 runs on [laravel-privacy](https://github.com/jeffersongoncalves/laravel-privacy), the engine shared by the
+LGPD, GDPR, CCPA, US privacy and Quebec suites. The classes, config keys, tables, commands and events of this package
+keep their names: your code, config and data need no change. Suites installed side by side never see each other's
+events. If you extend a class of this package, it now inherits from its `JeffersonGoncalves\Privacy` base.
+
 ## Testing
 
 ```bash
