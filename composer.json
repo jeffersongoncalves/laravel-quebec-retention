@@ -1,0 +1,70 @@
+{
+    "name": "jeffersongoncalves/laravel-quebec-retention",
+    "description": "Retention for Quebec Law 25: destroy or anonymize personal information once its purposes are achieved, with tombstones that re-apply it after a backup restore",
+    "keywords": [
+        "laravel",
+        "privacy",
+        "quebec",
+        "law-25",
+        "retention",
+        "anonymization"
+    ],
+    "homepage": "https://github.com/jeffersongoncalves/laravel-quebec-retention",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jefferson Simão Gonçalves",
+            "email": "gerson.simao.92@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^12.0|^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.24",
+        "orchestra/testbench": "^10.0|^11.0",
+        "pestphp/pest": "^3.0|^4.0",
+        "pestphp/pest-plugin-laravel": "^3.0|^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeffersonGoncalves\\QuebecRetention\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeffersonGoncalves\\QuebecRetention\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeffersonGoncalves\\QuebecRetention\\QuebecRetentionServiceProvider"
+            ],
+            "aliases": {
+                "QuebecRetention": "JeffersonGoncalves\\QuebecRetention\\Facades\\QuebecRetention"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
