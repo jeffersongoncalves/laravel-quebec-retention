@@ -3,14 +3,18 @@
 namespace JeffersonGoncalves\QuebecRetention\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use JeffersonGoncalves\QuebecRetention\RetentionManager;
 
 /**
- * @see \JeffersonGoncalves\QuebecRetention\QuebecRetention
+ * @method static list<array{model: class-string, column: string, retention: string, records: int}> apply(bool $dryRun = false)
+ * @method static int reapply()
+ *
+ * @see RetentionManager
  */
 class QuebecRetention extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return 'laravel-quebec-retention';
+        return RetentionManager::class;
     }
 }
